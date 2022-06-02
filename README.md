@@ -2,7 +2,7 @@
 
 proyecto de analisis de algoritmos sobre hash perfecto
 
-miembros:
+Miembros:
 
     Luis Gálvez
     
