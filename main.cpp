@@ -6,6 +6,8 @@ std::string loadText();
 
 std::vector<std::string> makeKmers(std::string,int);
 
+int findNextPrime(int);
+
 int main(){
     int S = 0;
     int k = 15;
@@ -13,6 +15,7 @@ int main(){
     std::string genoma = loadText();
     std::vector<std::string> kmers = makeKmers(genoma,k);
     
+
  
     return 0;
 }
