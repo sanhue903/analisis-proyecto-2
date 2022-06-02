@@ -3,6 +3,6 @@
 proyecto de analisis de algoritmos sobre hash perfecto
 
 miembros:
-    Luis Gálvez
-    Lizandro Ruiz
-    Sebastián Sanhueza
+    Luis Gálvez '\n'
+    Lizandro Ruiz '\n'
+    Sebastián Sanhueza '\n'
