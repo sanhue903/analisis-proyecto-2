@@ -3,12 +3,12 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include "primer_hash.h"
 
 int main()
 {
     std::vector<std::string> vec;
-
-    std::ifstream file_in("100-genomes.txt");
+    std::ifstream file_in("genomas/100-genomes.txt");
     if(!file_in) {}
 
     std::string s;
@@ -21,4 +21,5 @@ int main()
     {
         std::cout << vec[i] << std::endl;
     }
+    return 0;
 }
