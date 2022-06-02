@@ -2,7 +2,10 @@
 
 proyecto de analisis de algoritmos sobre hash perfecto
 
-miembros:
+Miembros:
+
     Luis Gálvez
-    Lizandro Ruiz
-    Sebastián Sanhueza
+    
+    Lizandro Ruiz 
+    
+    Sebastián Sanhueza 
