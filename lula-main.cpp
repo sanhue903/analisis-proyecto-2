@@ -8,7 +8,7 @@
 int main()
 {
     std::vector<std::string> vec;
-    std::ifstream file_in("genomas/100-genomes.txt");
+    std::ifstream file_in("genomas/1000-genomes.txt");
     if(!file_in) {}
 
     std::string s;

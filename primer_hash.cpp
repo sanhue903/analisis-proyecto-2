@@ -27,13 +27,13 @@ int primer_hash::hashT1(int p, int a, int b, int m,long long key)
 
 bool primer_hash::test()
 {
-    std::pair<int,int> ab = genAB(101);
+    std::pair<int,int> ab = genAB(1009);
     
     for(int i = 0; i < table.size(); i++)
     {
-        table[hashT1(101,ab.first,ab.second,table.size(),stringToInteger(keys[i]))]++;
+        table[hashT1(1009,ab.first,ab.second,table.size(),stringToInteger(keys[i]))]++;
     }
-
+    
     /*
     *   Probando si cumple con la sumatoria de C_i al cuadrado menor a 4n.
     */
@@ -54,5 +54,5 @@ long long primer_hash::stringToInteger(std::string key)
     {
         sum += (key[i] * (int)pow(31, i)) % table.size();
     }
-    return sum % 100;
+    return sum % table.size();
 }
