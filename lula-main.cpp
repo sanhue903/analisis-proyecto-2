@@ -21,5 +21,9 @@ int main()
     {
         std::cout << vec[i] << std::endl;
     }
+
+    primer_hash * ph = new primer_hash(vec);
+    ph->test();
+
     return 0;
 }
