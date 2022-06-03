@@ -7,11 +7,9 @@ class hashT1
 {
     public:
         hashT1(std::vector<int> _keys);
-        virtual ~hashT1();
+        ~hashT1();
     private:
-        std::vector<int> table;
-        std::vector<int> keys;
-        genAB(int p);
+        
 
 };
 

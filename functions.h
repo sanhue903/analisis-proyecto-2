@@ -5,13 +5,14 @@
 #include <vector>
 #include <math.h>
 
-#define PRIME 13
+#define PRIME 31
 
 class func{
     public:
-        std::pair<int,int> genAB(int);
-        int hash(std::pair<int,int>,int,int,int);
-        long long stringToInteger(std::string);
+        static std::pair<int,int> genAB(int);
+        static int hash(std::pair<int,int>,int,int,long long);
+        static long long stringToInteger(std::string);
+        void deleteDuplicates(std::vector<std::string>*);
 
 };
 
