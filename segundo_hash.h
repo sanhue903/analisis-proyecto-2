@@ -2,6 +2,7 @@
 #define HASHT2_H
 #include <iostream>
 #include <vector>
+#include "functions.h"
 
 class hashT2{
     public:

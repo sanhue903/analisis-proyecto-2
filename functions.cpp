@@ -11,16 +11,16 @@ int func::hash(std::pair<int,int> ab,int p,int m,int key){
     return ((ab.first*key + ab.second)%p)%m;
 }
 
-long long func::stringToInterger(std::string key){
-    long long interger = 0;
+long long func::stringToInteger(std::string key){
+    long long integer = 0;
     std::string::iterator it = key.begin();
     std::string::iterator end = key.end();
 
     int i = 0;
     while(it != end){
-        interger+= (long long)pow(PRIME,i);
+        integer+= (long long)pow(PRIME,i);
     }
 
-    return interger;
+    return integer;
 }
 

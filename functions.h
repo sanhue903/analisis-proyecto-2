@@ -11,7 +11,7 @@ class func{
     public:
         std::pair<int,int> genAB(int);
         int hash(std::pair<int,int>,int,int,int);
-        long long stringToInterger(std::string);
+        long long stringToInteger(std::string);
 
 };
 
