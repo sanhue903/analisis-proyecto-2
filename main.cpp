@@ -15,9 +15,7 @@ int main(){
     
     S = kmers.size();
 
-    
 
- 
     return 0;
 }
 
