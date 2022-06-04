@@ -1,31 +1,46 @@
 #include "segundo_hash.h"
 
-hashT2::hashT2(std::vector<long long> _keys){
+hashT2::hashT2(std::vector<std::string> _keys){
     ab = func::genAB(PRIME);
     m = _keys.size();
+    m*= m;
     
 
     makeTable(_keys);
 }
 
 
-void hashT2::makeTable(std::vector<long long> _keys){
-    std::vector<int> aux(m,0);
+void hashT2::makeTable(std::vector<std::string> _keys){
+    std::vector<std::string> aux(m,AVAILABLE);
 
-    std::vector<long long>::iterator it = _keys.begin();
-    std::vector<long long>::iterator end = _keys.end();
+    std::vector<std::string>::iterator it = _keys.begin();
+    std::vector<std::string>::iterator end = _keys.end();
 
     int pos = 0;
-    while (it != end){
-        pos = func::hash(ab,PRIME,m,*it);
-        std::cout<<pos<<std::endl;
+    unsigned long long integer = 0;
+    
+    //std::vector<std::string>::iterator auxit = aux.begin();
+    //std::vector<std::string>::iterator auxend = aux.end();
 
-        if (aux[pos] != 0){
+    while (it != end){
+        integer = func::stringToInteger(*it);
+        pos = func::hash(ab,PRIME,m,integer);
+        //std::cout<<*it + ' '<<pos<<std::endl;
+
+        if (aux[pos] != AVAILABLE){
             it = _keys.begin();
             ab = func::genAB(PRIME);
             std::cout<<" nuevos numeros; "<<ab.first<<' '<<ab.second<<std::endl;
-
-            std::vector<int> aux2(m,0);
+        /*   
+            auxit = aux.begin();
+            auxend = aux.end();
+            std::cout<<"////////////////////////////"<<std::endl;
+            while(auxit != auxend){
+                std::cout<<*auxit<<std::endl;
+                auxit++;         
+            }       
+        */  
+            std::vector<std::string> aux2(m,AVAILABLE);
             aux = aux2;
              
             continue;
@@ -45,8 +60,8 @@ std::pair<std::pair<int,int>,int> hashT2::returnTrio(){
 
 void hashT2::imprimir(){
     
-    std::vector<int>::iterator it = keys.begin();
-    std::vector<int>::iterator end = keys.end();
+    std::vector<std::string>::iterator it = keys.begin();
+    std::vector<std::string>::iterator end = keys.end();
 
     while(it != end){
         std::cout<<*it<<std::endl;

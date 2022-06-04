@@ -7,7 +7,7 @@
 
 class hashT2{
     public:
-        hashT2(std::vector<long long> _keys);
+        hashT2(std::vector<std::string> _keys);
 
         std::pair<std::pair<int,int>,int> returnTrio();
 
@@ -17,14 +17,9 @@ class hashT2{
         std::pair<int,int> ab;
         int m;
 
-        std::vector<int> keys;
+        std::vector<std::string> keys;
 
-        void makeTable(std::vector<long long>);
-
-        
-        
-
-        
+        void makeTable(std::vector<std::string>);
 };
 
 #endif

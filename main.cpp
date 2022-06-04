@@ -3,6 +3,7 @@
 #include <vector>
 #include "primer_hash.h"
 #include "segundo_hash.h"
+#include <limits.h>
 
 std::string loadText();
 
@@ -22,7 +23,6 @@ int main(){
     S = kmers.size();
     
     test(kmers);
-
 
     return 0;
 }
@@ -74,17 +74,7 @@ void test(std::vector<std::string> test){
     std::vector<std::string>::iterator it = test.begin();
     std::vector<std::string>::iterator end = test.end();
 
-    std::vector<long long> prueba;
-
-    long long integer = 0;
-    while(it != end){
-        integer = func::stringToInteger(*it);
-        prueba.push_back(integer);
-        
-        it++;
-    }
-
-    hashT2 tabla = hashT2(prueba);
+    hashT2 tabla = hashT2(test);
 
     tabla.imprimir();
 
