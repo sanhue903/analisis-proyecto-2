@@ -27,11 +27,13 @@ bool primer_hash::buildTable()
     while(true)
     {
         std::vector<int> test(keys.size(),0);
-        std::vector<std::string> bucket;
+        std::vector<std::vector<std::string> > buckets (_keys.size());
         std::pair<int,int> ab = genAB(prime);
         for(int i = 0; i < test.size(); i++)
         {
-            test[hashT1(prime,ab,test.size(),stringToInt(keys[i]))]++;
+            int hash = hashT1(prime,ab,test.size(),stringToInt(keys[i]));
+            test[hash]++;
+            buckets[hash].push_back(keys[i]);
         }
 
         int sum = 0;
@@ -40,10 +42,14 @@ bool primer_hash::buildTable()
             sum += pow(test[i],2);
         }
 
-        std::cout << sum << std::endl;// print statement here to see how many times we try to construct first level
+        // print statement here to see how many times we try to construct first level
         if(sum <= (4 * keys.size()))       
         {
             _ab = ab;
+            for(int i = 0; i < buckets.size(); i++)
+            {
+                table[i] = builtTable2(buckets[i]);
+            }
             return true;
         }
     }
@@ -57,4 +63,11 @@ unsigned long long primer_hash::stringToInt(std::string key)
         sum += (key[i] * (int)pow(11, i));
     }
     return sum;
+}
+
+segundo_hash primer_hash::buildTable2(std::vector<std::string> str_vr)
+{
+    segundo_hash * sh = new segundo_hash(str_vr);
+    sh->makeTable();
+    return * sh;
 }

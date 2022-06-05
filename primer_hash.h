@@ -8,8 +8,6 @@
 #include <random>
 #include "segundo_hash.h"
 
-#define PRIME 514249
-
 class primer_hash
 {
     public:
@@ -26,6 +24,7 @@ class primer_hash
         std::vector<std::string> keys;
         std::pair<int,int> genAB(int p);
         int hashT1(int p,std::pair<int,int> ab, int m, unsigned long long key);
+        segundo_hash buildTable2(std::vector<std::string> str_vr);
         unsigned long long stringToInt(std::string key);
 };
 
