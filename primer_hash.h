@@ -8,6 +8,8 @@
 #include <random>
 #include "segundo_hash.h"
 
+#define PRIME 514249
+
 class primer_hash
 {
     public:
