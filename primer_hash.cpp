@@ -1,21 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <utility>
-#include <cmath>
-#include <string>
-#include <random>
 #include "primer_hash.h"
-
-#define PRIME 514249
 
 primer_hash::primer_hash(std::uniform_int_distribution<int> _distribution, std::default_random_engine _generator,std::vector<std::string> _keys)
 {
+    table = std::vector<segundo_hash>(keys.size());
+    int prime = PRIME;
+
     distribution = _distribution;
     generator = _generator;
     keys = _keys;
-    size_t size = keys.size();
-    int prime = PRIME;
-    table = std::vector<int>(size,0);
 }
 
 std::pair<int,int> primer_hash::genAB(int p)
@@ -25,36 +17,42 @@ std::pair<int,int> primer_hash::genAB(int p)
     return std::make_pair(a,b);
 }
 
-int primer_hash::hashT1(int p, int a, int b, int m,long long key)
+int primer_hash::hashT1(int p, std::pair<int,int> ab, int m, unsigned long long key)
 {
-    return ((a * key + b) % p) % m;
+    return ((ab.first * key + ab.second) % p) % m;
 }
 
-bool primer_hash::test()
+bool primer_hash::buildTable()
 {
-    std::pair<int,int> ab = genAB(prime);
-    for(int i = 0; i < table.size(); i++)
+    while(true)
     {
-        table[hashT1(prime,ab.first,ab.second,table.size(),stringToInt(keys[i]))]++;
+        std::vector<int> test(keys.size(),0);
+        std::vector<std::string> bucket;
+        std::pair<int,int> ab = genAB(prime);
+        for(int i = 0; i < test.size(); i++)
+        {
+            test[hashT1(prime,ab,test.size(),stringToInt(keys[i]))]++;
+        }
+
+        int sum = 0;
+        for(int i = 0; i < test.size(); i++) 
+        {
+            sum += pow(test[i],2);
+        }
+
+        std::cout << sum << std::endl;// print statement here to see how many times we try to construct first level
+        if(sum <= (4 * keys.size()))       
+        {
+            _ab = ab;
+            return true;
+        }
     }
-    
-    /*
-    *   Probando si cumple con la sumatoria de C_i al cuadrado menor a 4n.
-    */
-    int sum = 0;
-    for(int i = 0; i < table.size(); i++)
-    {
-        sum += pow(table[i],2);
-        std::cout << table[i] << "\n";
-    }
-    std::cout << sum << "\n";
-    return true;
 }
 
-long long primer_hash::stringToInt(std::string key)
+unsigned long long primer_hash::stringToInt(std::string key)
 {
     size_t sum;
-    for (int i = 0; i < key.length(); i++)
+    for(int i = 0; i < key.size(); i++)
     {
         sum += (key[i] * (int)pow(11, i));
     }

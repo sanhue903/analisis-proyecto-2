@@ -7,8 +7,6 @@
 #include <chrono>
 #include "primer_hash.h"
 
-#define PRIME 514249
-
 int main()
 {
     std::vector<std::string> vec;
@@ -20,9 +18,9 @@ int main()
 
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine generator(seed);
-    std::uniform_int_distribution<int> distribution(0,PRIME);
+    std::uniform_int_distribution<int> distribution(0,PRIME - 1);
     primer_hash * ph = new primer_hash(distribution, generator, vec);
-    ph->test();
+    ph->buildTable();
 
     return 0;
 }
