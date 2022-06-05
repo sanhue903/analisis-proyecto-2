@@ -3,7 +3,7 @@
 #include <vector>
 #include "primer_hash.h"
 #include "segundo_hash.h"
-#include <limits.h>
+
 
 std::string loadText();
 
@@ -24,6 +24,16 @@ int main(){
     
     test(kmers);
 
+    /*//despues de generar la tabla
+    bool run = true;
+    std::string find;
+    while(run){
+        std::cin>>find;
+        //funcion de primer_hash para buscar
+        //std::cout la posicion en los 2 hash
+
+    }
+*/
     return 0;
 }
 
@@ -65,8 +75,8 @@ std::vector<std::string> makeKmers(std::string text,int k){
     while(it != kmers.end()){
         std::cout<<*it<<std::endl;
         it++;
-    }*/
-
+    }
+    */
     return kmers;
     }
 

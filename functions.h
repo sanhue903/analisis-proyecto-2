@@ -6,8 +6,8 @@
 #include <math.h>
 #include <functional>
 
-#define PRIME 23
-#define AVAILABLE "available"
+#define PRIME 1000001
+#define AVAILABLE "a"
 
 class func{
     public:
@@ -15,7 +15,6 @@ class func{
         static int hash(std::pair<int,int>,int,int,unsigned long long);
         static unsigned long long stringToInteger(std::string);
         void deleteDuplicates(std::vector<std::string>*);
-    private:
         static unsigned long long pow(int,int);
 
 };
