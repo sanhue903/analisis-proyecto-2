@@ -27,7 +27,7 @@ bool primer_hash::buildTable()
     while(true)
     {
         std::vector<int> test(keys.size(),0);
-        std::vector<std::vector<std::string> > buckets (_keys.size());
+        std::vector<std::vector<std::string> > buckets (keys.size());
         std::pair<int,int> ab = genAB(prime);
         for(int i = 0; i < test.size(); i++)
         {
