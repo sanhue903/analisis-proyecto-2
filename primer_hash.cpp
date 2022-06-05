@@ -48,7 +48,7 @@ bool primer_hash::buildTable()
             _ab = ab;
             for(int i = 0; i < buckets.size(); i++)
             {
-                table[i] = builtTable2(buckets[i]);
+                table[i] = buildTable2(buckets[i]);
             }
             return true;
         }
