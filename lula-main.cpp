@@ -22,11 +22,6 @@ int main()
     {
         vec.push_back(*it);
     }
-    for(int i = 0; i < vec.size(); i++)
-    {
-        std::cout << vec[i] << "\n";
-    }
-    std::cout << "size: " << vec.size() << "\n";
     
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine generator(seed);
