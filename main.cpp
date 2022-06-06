@@ -1,65 +1,51 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-
-std::string loadText();
-
-std::vector<std::string> makeKmers(std::string,int);
+#include <set>
+#include <ctime>
+#include "primer_hash.h"
 
 int main(){
-    int S = 0;
-    int k = 15;
-
-    std::string genoma = loadText();
-    std::vector<std::string> kmers = makeKmers(genoma,k);
+    srand(time(NULL));
     
-    S = kmers.size();
+    std::vector<std::string> vec;
+    std::set<std::string> st;
+    std::ifstream file_in("genomas/100-genomes.txt");
+    if(!file_in) {}
 
-    
+    std::string s;
+    while(std::getline(file_in, s)) st.insert(s);
 
- 
-    return 0;
-}
-
-std::string loadText(){
-    std::string aux;
-    std::string output;
-
-    std::ifstream text;
-
-    text.open("genomas/prueba1.txt",std::ios::in);
-
-    if (text.is_open()){
-        while (!text.eof()){
-            getline(text,aux);
-            output+= aux;
-        }
-
-        text.close();    
-    }
-
-    return output;
-}
-
-std::vector<std::string> makeKmers(std::string text,int k){
-    std::vector<std::string> kmers;
-    std::string aux = text.substr(0,k);
-
-    int i = 0;
-
-    while (aux.length() == k){
-        kmers.push_back(aux);
-
-        i++;
-        aux = text.substr(i,k);
+    for(std::set<std::string>::iterator it = st.begin(); it != st.end(); it++)
+    {
+        vec.push_back(*it);
     }
 
     /*
-    std::vector<std::string>::iterator it = kmers.begin();
-    while(it != kmers.end()){
-        std::cout<<*it<<std::endl;
-        it++;
-    }*/
-
-    return kmers;
+    *   Para probar con distintos numeros de kmers importar archivos de distintos tamanos,
+    *   abajo se calcula un promedio de construir la tabla y buscar un elemento n veces con
+    *   el tamano del archivo de kmers importado.
+    */
+    int n = 1000;
+    double nano = 1000000000;//Variable usada para pasar a nanoSegundos
+    double tiempoConstruir = 0, tiempoBuscar = 0;       
+    clock_t start = std::clock();
+    
+    std::cout << " construir ; buscar " << std::endl;
+    for(int i = 0; i < n; i++)
+    {
+        hashT1 h = hashT1(vec);
+        h.imprimir();
     }
+    tiempoConstruir = ((double)std::clock() - start)/CLOCKS_PER_SEC;
+
+    start = clock();
+    for(int i = 0; i < n; i++)
+    {
+        // search
+    }
+    tiempoBuscar = ((double)std::clock()-start)/CLOCKS_PER_SEC;
+
+    std::cout << n << ";" << (tiempoConstruir/(double)n)*nano << ";" << (tiempoBuscar/(double)n)*nano << std::endl;
+    return 0;
+}
