@@ -57,3 +57,18 @@ void hashT1::buildTable(std::vector<std::string> _keys){
     
 }
 
+void hashT1::imprimir(){
+    std::vector<hashT2*>::iterator it = table.begin();
+    std::vector<hashT2*>::iterator end = table.end();
+
+    int i = 0;
+    while (it != end){
+        std::cout<<i<<std::endl;
+        if (*it)
+            (*it)->imprimir();
+        else 
+            std::cout<<'.'<<std::endl;
+        it++;
+        i++;
+    }
+}

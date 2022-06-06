@@ -23,6 +23,8 @@ int main(){
     
     hashT1 a = hashT1(kmers);
 
+    a.imprimir();
+
     //test(kmers);
 
     /*//despues de generar la tabla

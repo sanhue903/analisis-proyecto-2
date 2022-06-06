@@ -5,6 +5,7 @@
 class hashT1{
     public:
         hashT1(std::vector<std::string>);
+        void imprimir();
     private:
         std::pair<int,int> ab;
         std::vector<hashT2*> table;

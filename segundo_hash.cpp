@@ -28,7 +28,6 @@ void hashT2::makeTable(std::vector<std::string> _keys){
     
     while (it != end){
         pos = func::hash(ab,PRIME,m,*intIt);
-        std::cout<<*it + ' '<<pos<<std::endl;
 
         if (aux[pos] != AVAILABLE){
             it = _keys.begin();
