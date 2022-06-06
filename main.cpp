@@ -22,7 +22,9 @@ int main(){
     
     S = kmers.size();
     
-    test(kmers);
+    hashT1 a = hashT1(kmers);
+
+    //test(kmers);
 
     /*//despues de generar la tabla
     bool run = true;

@@ -1,8 +1,8 @@
 #include "functions.h"
 
-std::pair<int,int> func::genAB(int p){
-    int a = std::rand()%p;
-    int b = std::rand()%p;
+std::pair<int,int> func::genAB(){
+    int a = std::rand()%PRIME;
+    int b = std::rand()%PRIME;
     
     return std::make_pair(a,b);
 }

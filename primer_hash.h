@@ -1,16 +1,14 @@
 #ifndef HASHT1_H
 #define HASHT1_H
-#include <iostream>
-#include <vector>
+#include "segundo_hash.h"
 
-class hashT1
-{
+class hashT1{
     public:
-        hashT1(std::vector<int> _keys);
-        ~hashT1();
+        hashT1(std::vector<std::string>);
     private:
-        
-
+        std::pair<int,int> ab;
+        std::vector<hashT2> table;
+        void buildTable(std::vector<std::string>);
 };
 
 #endif

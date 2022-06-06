@@ -1,8 +1,6 @@
 #include "segundo_hash.h"
 
 hashT2::hashT2(std::vector<std::string> _keys){
-    ab = func::genAB(PRIME);
-
     m = _keys.size();
     m*= m;
     
@@ -25,12 +23,11 @@ void hashT2::makeTable(std::vector<std::string> _keys){
     std::vector<unsigned long long>::iterator intIt = integers.begin();
     it = _keys.begin();
     
-    unsigned long long integer = 0;
+    ab = func::genAB();
     int pos = 0;
     
     while (it != end){
-        integer = *intIt;
-        pos = func::hash(ab,PRIME,m,integer);
+        pos = func::hash(ab,PRIME,m,*intIt);
         std::cout<<*it + ' '<<pos<<std::endl;
 
         if (aux[pos] != AVAILABLE){
@@ -40,7 +37,7 @@ void hashT2::makeTable(std::vector<std::string> _keys){
             std::vector<std::string> aux2(m,AVAILABLE);
             aux = aux2;
 
-            ab = func::genAB(PRIME);
+            ab = func::genAB();
             std::cout<<" nuevos numeros; "<<ab.first<<' '<<ab.second<<std::endl;
                      
             continue;

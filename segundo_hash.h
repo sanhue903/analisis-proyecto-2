@@ -1,8 +1,5 @@
 #ifndef HASHT2_H
 #define HASHT2_H
-#include <iostream>
-#include <vector>
-#include <utility>
 #include "functions.h"
 
 class hashT2{
