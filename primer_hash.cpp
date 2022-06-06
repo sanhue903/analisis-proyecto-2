@@ -1,9 +1,10 @@
 #include "primer_hash.h"
 
 hashT1::hashT1(std::vector<std::string> keys){
-    table = std::vector<hashT2>(keys.size());
+    table = std::vector<hashT2*>(keys.size());
     buildTable(keys);
 }
+
 
 void hashT1::buildTable(std::vector<std::string> _keys){
     std::vector<int> test(_keys.size(),0);
@@ -51,7 +52,7 @@ void hashT1::buildTable(std::vector<std::string> _keys){
 
     for (int i = 0;i < tamTest;i++){
         if (!buckets[i].empty())
-            table[i] = hashT2(buckets[i]);
+            table[i] = new hashT2(buckets[i]);
     }
     
 }

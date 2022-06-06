@@ -4,7 +4,6 @@
 #include <utility>
 #include <vector>
 #include <math.h>
-#include <vector>
 #include <functional>
 
 #define PRIME 1000001
@@ -15,7 +14,6 @@ class func{
         static std::pair<int,int> genAB();
         static int hash(std::pair<int,int>,int,int,unsigned long long);
         static unsigned long long stringToInteger(std::string);
-        void deleteDuplicates(std::vector<std::string>*);
         static unsigned long long pow(int,int);
     private:
         

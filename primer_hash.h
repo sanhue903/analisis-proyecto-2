@@ -7,7 +7,7 @@ class hashT1{
         hashT1(std::vector<std::string>);
     private:
         std::pair<int,int> ab;
-        std::vector<hashT2> table;
+        std::vector<hashT2*> table;
         void buildTable(std::vector<std::string>);
 };
 

@@ -2,7 +2,6 @@
 #include <fstream>
 #include <vector>
 #include "primer_hash.h"
-#include "segundo_hash.h"
 
 
 std::string loadText();
